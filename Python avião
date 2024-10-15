@@ -1,0 +1,84 @@
+from fpdf import FPDF
+
+# Criando o PDF para o Relatório de Perícia
+pdf = FPDF()
+pdf.add_page()
+
+# Adicionando título e texto do relatório de perícia
+pdf.set_font('Arial', 'B', 16)
+pdf.cell(200, 10, 'Relatório de Perícia - Acidente de Carro', ln=True, align='C')
+
+pdf.set_font('Arial', '', 12)
+pdf.ln(10)
+pdf.multi_cell(0, 10, 
+"""
+Relatório de Perícia - Acidente Automobilístico
+
+Data: 15 de maio de 2019
+Local: Rodovia BR-101, km 187
+
+Acidentados: 
+- Alexandre Aielo de Lima
+- Mirela de Souza
+
+Descrição do Acidente:
+Na noite do dia 15 de maio de 2019, por volta das 22:30, o veículo conduzido por Alexandre Aielo de Lima, 
+acompanhado pela passageira Mirela de Souza, derrapou ao passar por um trecho da pista com óleo espalhado. 
+As condições meteorológicas e a falta de sinalização contribuíram para a perda de controle do veículo, 
+resultando na colisão com uma árvore à margem da rodovia.
+
+Causas Prováveis:
+A perícia constatou que o óleo na pista, juntamente com a velocidade do veículo, foi a causa principal do acidente. 
+Não foram encontradas evidências de falha mecânica no veículo.
+
+Consequências:
+Infelizmente, a passageira Mirela de Souza não resistiu aos ferimentos e veio a óbito no local. Alexandre Aielo de Lima
+sofreu ferimentos graves e foi encaminhado ao hospital da região.
+
+Conclusão:
+O acidente foi causado por fatores externos, sem negligência por parte do condutor. 
+A presença de óleo na pista contribuiu decisivamente para a perda de controle do veículo.
+""")
+
+# Salvando o primeiro PDF
+pdf_file_path_1 = "/mnt/data/Relatorio_Pericial_Acidente.pdf"
+pdf.output(pdf_file_path_1)
+
+# Criando o segundo PDF - Denúncia contra o Jornal "Serra da Saudade"
+pdf = FPDF()
+pdf.add_page()
+
+# Adicionando título e texto da denúncia
+pdf.set_font('Arial', 'B', 16)
+pdf.cell(200, 10, 'Denúncia contra o Jornal "Serra da Saudade"', ln=True, align='C')
+
+pdf.set_font('Arial', '', 12)
+pdf.ln(10)
+pdf.multi_cell(0, 10, 
+"""
+Denúncia Formal - Jornal "Serra da Saudade"
+
+Data: 10 de outubro de 2024
+Denunciante: Defesa de Alexandre Aielo de Lima
+
+Descrição da Denúncia:
+O presente documento formaliza a denúncia contra o jornal "Serra da Saudade" por sua conduta imprudente 
+e difamatória em várias ocasiões, com destaque para a publicação de uma matéria antiga relacionada 
+ao Sr. Alexandre Aielo de Lima. O jornal utilizou informações falsas e manipuladas, associando a imagem 
+de Alexandre a crimes que ele não cometeu, ao mesmo tempo que o identificava incorretamente como "Alejandro Fernandes".
+
+Histórico Problemático:
+O "Serra da Saudade" tem um longo histórico de publicações sensacionalistas e, em muitos casos, sem embasamento factual. 
+Diversas matérias do periódico foram alvo de críticas por parte de outros veículos de comunicação, 
+evidenciando sua falta de compromisso com a verdade e o sensacionalismo com o objetivo de gerar manchetes chamativas.
+
+Pedido:
+Solicitamos que as práticas irresponsáveis do jornal "Serra da Saudade" sejam investigadas e que o veículo 
+seja responsabilizado por danos morais, além de uma retratação pública ao Sr. Alexandre Aielo de Lima.
+""")
+
+# Salvando o segundo PDF
+pdf_file_path_2 = "/mnt/data/Denuncia_Jornal_Serra_da_Saudade.pdf"
+pdf.output(pdf_file_path_2)
+
+pdf_file_path_1, pdf_file_path_2
